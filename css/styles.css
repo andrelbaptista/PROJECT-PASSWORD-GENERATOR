@@ -15,7 +15,7 @@ Concluindo, a não ser em casos especiais, a definição dentro do HTML é a mai
   --font1: "Montserrat", sans-serif;
   --color1: #ea03ff;
   --color2: #0097ff;
-  --color3: rgba(25,11,122,0.7);
+  --color3: rgba(25, 11, 122, 0.7);
   --color4: #fff;
   --color5: rgba(50, 50, 93, 0.25);
   --color6: rgba(0, 0, 0, 0.3);
@@ -57,8 +57,7 @@ input:focus {
   display: flex;
 
   /* criando efeito flutuante do box sobre o fundo */
-  box-shadow: var(--color5) 0px 13px 27px -5px,
-    var(--color6) 0px 8px 16px -8px;
+  box-shadow: var(--color5) 0px 13px 27px -5px, var(--color6) 0px 8px 16px -8px;
 }
 
 /* colocando a imagem do fundo na metade do container pincipal e preenchendo o maximo com a imagem e position 
@@ -69,7 +68,6 @@ pra centralizar a imagem e define que vai ocupar 50% */
   background-position: center;
   width: 50%;
 }
-
 
 /*  coloca uma opacidade sobre a imagem  define que cobrira 100%, da um padding de 2rem protexto e
  flex e alig-itens pra posicionar o texto*/
@@ -86,7 +84,7 @@ pra centralizar a imagem e define que vai ocupar 50% */
 #picture h1 {
   font-size: 4rem;
   margin-bottom: 1.5rem;
-  color:var(--color4);
+  color: var(--color4);
   word-spacing: 50rem;
 }
 
@@ -109,10 +107,10 @@ faz o espaçamento das bordas, define o tamanho de 50% e flex em colunas */
 
 /* alinha todos os parágrafos, define cor pra não competir com os inputs e margem inferior e tamanho da fonte */
 #entry-form p {
-text-align: center;
-margin-bottom: 1.5rem;
-color: var(--color9);
-font-size: .8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--color9);
+  font-size: 0.8rem;
 }
 
 /* da espaço superior e coloca um abaixo do outro */
@@ -125,23 +123,22 @@ font-size: .8rem;
 /*  coloca font bold e espaçamento superior */
 .form-control label {
   font-weight: bold;
-  margin-bottom: .6rem;
+  margin-bottom: 0.6rem;
 }
 
 /*  tira bordas e coloca so uma abaixo e define espacamento dentro do campo */
 .form-control input {
   border: none;
   border-bottom: 1px solid var(--color9);
-  padding: .6rem 0;
+  padding: 0.6rem 0;
 }
 
 /* coloca font bold, iseri cursor e cria transicao de animação */
 #btn-password-gen {
   font-weight: bold;
   cursor: pointer;
-  transition: .4s;
+  transition: 0.4s;
 }
-
 
 #btn-password-gen:hover {
   color: var(--color10);
@@ -154,7 +151,7 @@ espacamento interno, com e margem ingerior e o esconde pra aparecer com o javasc
   border-radius: 4px;
   font-weight: bold;
   font-size: 1.2rem;
-  padding: .4rem;
+  padding: 0.4rem;
   color: var(--color7);
   text-align: center;
   margin-bottom: 1rem;
@@ -164,13 +161,16 @@ espacamento interno, com e margem ingerior e o esconde pra aparecer com o javasc
 /*  muda cor parágrafo e da margem inferior */
 #entry-form #generated-password p {
   color: var(--color11);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
-#entry-form input[type="submit"] {
+/* defino os butões com o mesmo estilo e no flex a esquerda */
+#entry-form input[type="submit"],
+#generate-options button,
+#generated-password button {
   background-color: var(--color11);
   color: var(--color4);
-  opacity: .8;
+  opacity: 0.8;
   border: none;
   /* botão formato de pílula */
   border-radius: 2rem;
@@ -179,10 +179,64 @@ espacamento interno, com e margem ingerior e o esconde pra aparecer com o javasc
   max-width: 150px;
   cursor: pointer;
   align-self: flex-end;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 /* cria o efeito de heighlight com opacity */
 #entry-form input[type="submit"]:hover {
   opacity: 1;
+}
+
+/*  */
+/*  */
+/*  */
+/* Segunda versão */
+/*  */
+/*  */
+/*  */
+/* cria uma caixa pras opções bom margem no fim e espaço interno, bemcomo cor e espessura de borda */
+#generate-options {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--color7);
+}
+
+/* alinha os itens em colunas, centrados e com espaço entre */
+#generate-options .form-control {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* diminui o tamanho da fonte do label */
+#generate-options label {
+  font-size: 0.8rem;
+}
+
+/* no input texto diminui o tamanho, centraliza e coloca borda */
+#generate-options input[type="text"] {
+  max-width: 30px;
+  text-align: center;
+  border: 1px solid var(--color7);
+}
+
+/* mudo a cor do botão e com bloco alinho a esquerda e compreende a linha toda o margin centraliza */
+#generate-options button {
+  background-color: var(--color2);
+  display: block;
+  margin: 0 auto;
+}
+
+/* altera a formatação do botão de copy */
+#generated-password #copy-password {
+  margin: 1rem auto;
+  background-color: transparent;
+  border: 2px solid var(--color11);
+  color: var(--color11);
+  padding: 0.5rem 1rem;
+}
+
+/* esta e aclasse que o javascript altera pra aparecer as */
+.hide {
+  display: none;
 }
