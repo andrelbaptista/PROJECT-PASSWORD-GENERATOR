@@ -1,0 +1,188 @@
+/* A regra @charset não precisa e não deve ser declarada para as declarações de CSS escritas dentro do próprio documento HTML. Esta regra serve apenas para folhas de estilos externas linkadas em um documento.
+
+Concluindo, a não ser em casos especiais, a definição dentro do HTML é a mais indicada e suficiente como diz o próprio W3C.
+ */
+
+/* @charset "UTF-8"; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font1: "Montserrat", sans-serif;
+  --color1: #ea03ff;
+  --color2: #0097ff;
+  --color3: rgba(25,11,122,0.7);
+  --color4: #fff;
+  --color5: rgba(50, 50, 93, 0.25);
+  --color6: rgba(0, 0, 0, 0.3);
+  --color7: #333;
+  --color8: #fdfdfd;
+  --color9: #aaa;
+  --color10: #0099ff;
+  --color11: #81d340;
+}
+
+/* definir no html,body heigth auto min-height 100vh permite o scroll mantendo o degrade */
+html,
+body {
+  height: auto;
+  min-height: 100vh;
+}
+
+/* aqui se define o degrade do fundo*/
+html {
+  background-image: linear-gradient(
+    180deg,
+    var(--color1) 0%,
+    var(--color2) 100%
+  );
+  font-family: var(--font1);
+  color: var(--color7);
+}
+
+/* retira as bordas pretas quando usuário seleciona o campo */
+input:focus {
+  outline: none;
+}
+
+/* centraliza o container que abrange os outros 2 container e afasta do topo, tambem define largura e altura */
+#main-container {
+  max-width: 900px;
+  min-height: 80vh;
+  margin: 2rem auto;
+  display: flex;
+
+  /* criando efeito flutuante do box sobre o fundo */
+  box-shadow: var(--color5) 0px 13px 27px -5px,
+    var(--color6) 0px 8px 16px -8px;
+}
+
+/* colocando a imagem do fundo na metade do container pincipal e preenchendo o maximo com a imagem e position 
+pra centralizar a imagem e define que vai ocupar 50% */
+#picture {
+  background-image: url("../img/download.jpeg");
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+}
+
+
+/*  coloca uma opacidade sobre a imagem  define que cobrira 100%, da um padding de 2rem protexto e
+ flex e alig-itens pra posicionar o texto*/
+#banner-layer {
+  background-color: var(--color3);
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* aumenta o tamanho da fonte coloca cor branca,
+ da uma margim do topo de 1.5rem e aumenta o espacamento entre palavras pra caber uma por linha */
+#picture h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color:var(--color4);
+  word-spacing: 50rem;
+}
+
+/* define o fundo como quase branco pra nao brilhar tando, 
+faz o espaçamento das bordas, define o tamanho de 50% e flex em colunas */
+#entry-form {
+  background-color: var(--color8);
+  padding: 2rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* centraliza o título, aumenta a fonte e da margem inferior */
+#entry-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+}
+
+/* alinha todos os parágrafos, define cor pra não competir com os inputs e margem inferior e tamanho da fonte */
+#entry-form p {
+text-align: center;
+margin-bottom: 1.5rem;
+color: var(--color9);
+font-size: .8rem;
+}
+
+/* da espaço superior e coloca um abaixo do outro */
+.form-control {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/*  coloca font bold e espaçamento superior */
+.form-control label {
+  font-weight: bold;
+  margin-bottom: .6rem;
+}
+
+/*  tira bordas e coloca so uma abaixo e define espacamento dentro do campo */
+.form-control input {
+  border: none;
+  border-bottom: 1px solid var(--color9);
+  padding: .6rem 0;
+}
+
+/* coloca font bold, iseri cursor e cria transicao de animação */
+#btn-password-gen {
+  font-weight: bold;
+  cursor: pointer;
+  transition: .4s;
+}
+
+
+#btn-password-gen:hover {
+  color: var(--color10);
+}
+
+/* define bordas e radius, font bold, alinhamento ao centro tamanho de fonte e 
+espacamento interno, com e margem ingerior e o esconde pra aparecer com o javascript*/
+#entry-form #generated-password {
+  border: 1px solid var(--color10);
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: .4rem;
+  color: var(--color7);
+  text-align: center;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+/*  muda cor parágrafo e da margem inferior */
+#entry-form #generated-password p {
+  color: var(--color11);
+  margin-bottom: .5rem;
+}
+
+#entry-form input[type="submit"] {
+  background-color: var(--color11);
+  color: var(--color4);
+  opacity: .8;
+  border: none;
+  /* botão formato de pílula */
+  border-radius: 2rem;
+  padding: 1rem 1.4rem;
+
+  max-width: 150px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: .4s;
+}
+
+/* cria o efeito de heighlight com opacity */
+#entry-form input[type="submit"]:hover {
+  opacity: 1;
+}
