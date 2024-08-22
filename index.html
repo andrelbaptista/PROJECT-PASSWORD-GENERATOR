@@ -59,9 +59,10 @@
         </p>
         <div id="generate-options" class="hide">
           <p>Choose your options</p>
+          <p id="warning"> </p>
           <div class="form-control">
             <label for="length">Quantos caracteres:</label>
-            <input type="text" name="legth" id="lenght" value="10"/>
+            <input type="text" name="legth" id="length" value="10"/>
           </div>
           <div class="form-control">
             <label for="letter">Letters:</label>
@@ -69,16 +70,17 @@
           </div>
           <div class="form-control">
             <label for="Number">Numbers:</label>
-            <input type="checkbox" name="Number" id="Number" checked/>
+            <input type="checkbox" name="Number" id="number" checked/>
           </div>
           <div class="form-control">
             <label for="Symbol">Symbols:</label>
-            <input type="checkbox" name="Symbol" id="Symbol" checked/>
+            <input type="checkbox" name="Symbol" id="symbol" checked/>
           </div>
-          <button id="btn-pass-gen" type="button">Generate</button>
+          <button id="btn-generate" type="button">Generate</button>
         </div>
         <div id="generated-password">
            <p>Your suggested Password:</p> 
+           <h4></h4>
            <button id="copy-password" type="button">Copy</button>
         </div>
         <div class="form-control">
