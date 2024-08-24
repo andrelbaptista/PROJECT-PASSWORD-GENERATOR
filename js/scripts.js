@@ -36,8 +36,8 @@ const symbolInput = document.querySelector("#symbol");
 // seleciona botão copy
 const copyBtn = document.querySelector("#copy-password");
 
-// limite nde 30 caracteres
-const limite30 = document.querySelector("#warning");
+// seleciona o texto de avisos
+const warning = document.querySelector(".warning");
 
 //
 //
@@ -110,18 +110,41 @@ const genPassword = (
     funcGenerator.push(getSymbol);
   }
 
-  // console.log(passwordLength, funcGenerator.length);
-  // se o usuário não marcou nada só retorno
-  if (passwordLength === 0 || funcGenerator.length === 0) {
+  // limita o tamanho da password a no mínimo 18 caracteres e coloca mensagem, volta o valor na tela e na variável pra 10
+  //  e faz aparecer a mensagem e hide a parte da senha
+  if (passwordLength < 10) {
+    passwordLength = 10;
+    lengthInput.value = 10;
+    warning.innerText = "10 characters minimum";
+    warning.style.display = "block";
+    passwordElement.style.display = "none";
     return;
+  } else {
+    warning.style.display = "none";
   }
 
+  // limita o tamanho da password no máximo a 28 caracteres e coloca mensagem, volta o valor na tela e na variável pra 28
+  //  e faz aparecer a mensagem e hide a parte da senha
+  if (passwordLength > 28) {
+    passwordLength = 28;
+    lengthInput.value = 28;
+    warning.innerText = "28 characters maximun";
+    warning.style.display = "block";
+    passwordElement.style.display = "none";
+    return;
+  } else {
+    warning.style.display = "none";
+  }
 
-
-  // limita o tamanho da password a 30 caracteres
-  if (passwordLength > 30) {
-    passwordLength = 30;
-    limite30.innerText= "Máximo de 30 caracteres"
+  // verifica se foi selecionada ao menos uma opcão, coloca a mensagem e hide a parte da senha
+  //  e faz aparecer a mensagem
+  if (funcGenerator.length <1) {
+    warning.innerText = "Choose at least one option";
+    warning.style.display = "block";
+    passwordElement.style.display = "none";
+    return;
+  } else {
+    warning.style.display = "none";
   }
 
   // começa a gerar a senha alternando entre as funções que são 5 e limitadas a 10 caracteres
@@ -162,3 +185,19 @@ btnPassGen.addEventListener("click", () => {
 passwordBtn.addEventListener("click", () => {
   showUp.classList.toggle("hide");
 });
+
+// ao pressionar o evento de cópia de senha copia a senha pro clipboard e altera o texto do botao pra copied
+// por 1000 ms e volta pra copy
+copyBtn.addEventListener("click",(e) => {
+  e.preventDefault();
+  const password = passwordElement.querySelector("h4").innerText;
+  navigator.clipboard.writeText(password).then (() => {
+    copyBtn.innerText="Copied";
+    setTimeout(() => {
+      copyBtn.innerText="Copy";
+    },1000)
+  })
+  setTimeout (() => {
+
+  })
+  })
