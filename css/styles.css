@@ -49,11 +49,15 @@ input:focus {
   outline: none;
 }
 
+#dude {
+  display: none;
+}
+
 /* centraliza o container que abrange os outros 2 container e afasta do topo, tambem define largura e altura */
 #main-container {
   max-width: 900px;
   min-height: 80vh;
-  margin: 2rem auto;
+  margin: 5rem auto;
   display: flex;
 
   /* criando efeito flutuante do box sobre o fundo */
@@ -158,8 +162,6 @@ espacamento interno, com e margem ingerior e o esconde pra aparecer com o javasc
   display: none;
 }
 
-
-
 /*  muda cor parágrafo e da margem inferior */
 #entry-form #generated-password p {
   color: var(--color11);
@@ -183,7 +185,6 @@ espacamento interno, com e margem ingerior e o esconde pra aparecer com o javasc
   align-self: flex-end;
   transition: 0.4s;
 }
-
 
 /* cria o efeito de heighlight com opacity */
 #entry-form input[type="submit"]:hover {
@@ -249,7 +250,6 @@ espacamento interno, com e margem ingerior e o esconde pra aparecer com o javasc
   animation: blink 3s infinite;
   text-align: center;
   display: none;
-
 }
 
 /* cria a animação da mensagem de erro */
@@ -261,5 +261,25 @@ espacamento interno, com e margem ingerior e o esconde pra aparecer com o javasc
   100% {
     color: var(--color7);
     opacity: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  #picture {
+    display: none;
+  }
+  #entry-form {
+    width: 100%;
+  }
+  #dude {
+    display: block;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  #main-container {
+    margin: 2rem auto;
   }
 }

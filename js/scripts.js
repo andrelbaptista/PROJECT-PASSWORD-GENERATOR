@@ -138,7 +138,7 @@ const genPassword = (
 
   // verifica se foi selecionada ao menos uma opcão, coloca a mensagem e hide a parte da senha
   //  e faz aparecer a mensagem
-  if (funcGenerator.length <1) {
+  if (funcGenerator.length < 1) {
     warning.innerText = "Choose at least one option";
     warning.style.display = "block";
     passwordElement.style.display = "none";
@@ -188,16 +188,14 @@ passwordBtn.addEventListener("click", () => {
 
 // ao pressionar o evento de cópia de senha copia a senha pro clipboard e altera o texto do botao pra copied
 // por 1000 ms e volta pra copy
-copyBtn.addEventListener("click",(e) => {
+copyBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const password = passwordElement.querySelector("h4").innerText;
-  navigator.clipboard.writeText(password).then (() => {
-    copyBtn.innerText="Copied";
+  navigator.clipboard.writeText(password).then(() => {
+    copyBtn.innerText = "Copied";
     setTimeout(() => {
-      copyBtn.innerText="Copy";
-    },1000)
-  })
-  setTimeout (() => {
-
-  })
-  })
+      copyBtn.innerText = "Copy";
+    }, 1000);
+  });
+  setTimeout(() => {});
+});
